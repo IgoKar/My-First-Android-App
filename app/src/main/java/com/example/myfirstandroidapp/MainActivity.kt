@@ -24,4 +24,9 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun getToast(view: View) {
+        val intent = Intent(this, DisplayToastActivity::class.java).apply {}
+        startActivity(intent)
+    }
+
 }

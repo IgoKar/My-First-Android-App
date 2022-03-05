@@ -2,4 +2,5 @@
     <string name="app_name">My First Android App</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
+    <string name="btn_click_me">Get toast</string>
 </resources>
