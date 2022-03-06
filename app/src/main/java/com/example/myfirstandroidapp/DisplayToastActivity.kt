@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Switch
 import android.widget.Toast
 
 class DisplayToastActivity : AppCompatActivity() {
@@ -14,19 +15,18 @@ class DisplayToastActivity : AppCompatActivity() {
         val imageViewToast = findViewById(R.id.image_view) as ImageView
         imageViewToast.setOnClickListener {
             // make a toast on button click event
-            Toast.makeText(this, "Hi there! You've clicked imageView Toaster!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Hi there! You've clicked imageView Toast!", Toast.LENGTH_SHORT).show()
         }
 
-        val shortToast = findViewById(R.id.short_toast) as Button
-        shortToast.setOnClickListener {
-            // make a toast on button click event
-            Toast.makeText(this, "Hi there! This toast displays shorter.", Toast.LENGTH_SHORT).show()
-        }
+        val switch = findViewById(R.id.switch_long_short) as Switch
+        val toastBtn = findViewById(R.id.toast_btn) as Button
 
-        val longToast = findViewById(R.id.long_toast) as Button
-        longToast.setOnClickListener {
-            // make a toast on button click event
-            Toast.makeText(this, "Hi there! This Toast displays longer.", Toast.LENGTH_LONG).show()
+        toastBtn.setOnClickListener{
+            if(switch.isChecked){
+                Toast.makeText(this, "Long toast.", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "Short toast", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
