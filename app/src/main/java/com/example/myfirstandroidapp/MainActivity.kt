@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun sendMessage(view: View) {
-        val editText = findViewById<EditText>(R.id.editText)
+        val editText = findViewById<EditText>(R.id.editTextName)
         val message = editText.text.toString()
         val intent = Intent(this, DisplayMessageActivity::class.java).apply {
             putExtra(EXTRA_MESSAGE, message)
@@ -26,6 +26,11 @@ class MainActivity : AppCompatActivity() {
 
     fun getToast(view: View) {
         val intent = Intent(this, DisplayToastActivity::class.java).apply {}
+        startActivity(intent)
+    }
+
+    fun getLayouts(view: View) {
+        val intent = Intent(this, DisplayLayoutsActivity::class.java).apply {}
         startActivity(intent)
     }
 
