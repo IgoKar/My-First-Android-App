@@ -29,8 +29,13 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun getLayouts(view: View) {
-        val intent = Intent(this, DisplayLayoutsActivity::class.java).apply {}
+    fun getLinearLayout(view: View) {
+        val intent = Intent(this, DisplayLinearLayoutActivity::class.java).apply {}
+        startActivity(intent)
+    }
+
+    fun getRelativeLayout(view: View) {
+        val intent = Intent(this, DisplayRelativeLayoutActivity::class.java).apply {}
         startActivity(intent)
     }
 

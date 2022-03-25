@@ -23,10 +23,11 @@
 
     <Button
             android:id="@+id/showInput"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="show"
-            android:textColor="@android:color/white" android:onClick="sendName"/>
+            android:textColor="@android:color/white" android:onClick="sendName" android:insetLeft="6dp"
+            android:insetRight="6dp"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
