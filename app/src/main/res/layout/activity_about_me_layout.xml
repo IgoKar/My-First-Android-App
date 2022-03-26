@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal">
+        <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp" app:srcCompat="@drawable/avatar_1"
+                android:id="@+id/imageView"
+                android:contentDescription="CreatorImg"/>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:orientation="vertical">
+
+            <TextView
+                    android:text="MyFirstAndroidApp \nby Igor Karlik 72912"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView3" android:textSize="16sp"/>
+            <ImageButton
+                    android:clickable="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    app:srcCompat="@drawable/github_white"
+                    android:id="@+id/imageButton"
+                    android:contentDescription="GithubLink"
+                    android:onClick="goToGithub"/>
+            <ImageButton
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    app:srcCompat="@drawable/linkedin_white"
+                    android:id="@+id/imageButton2"
+                    android:contentDescription="LinkedInLink"
+                    android:onClick="goToLinkedIn"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

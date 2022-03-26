@@ -24,8 +24,8 @@
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"/>
     <ImageView
             android:layout_width="100dp"
-            android:layout_height="100dp" app:srcCompat="@drawable/_595626" android:id="@+id/image_view"
+            android:layout_height="100dp" app:srcCompat="@drawable/toast_image" android:id="@+id/image_view"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="120dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
