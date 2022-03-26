@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
@@ -18,14 +20,15 @@
                 android:contentDescription="CreatorImg"/>
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:orientation="vertical">
 
             <TextView
                     android:text="MyFirstAndroidApp \nby Igor Karlik 72912"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/textView3" android:textSize="16sp"/>
+                    android:layout_height="wrap_content" android:id="@+id/textView3" android:textSize="16sp"
+            />
             <ImageButton
                     android:clickable="true"
                     android:adjustViewBounds="true"
@@ -48,4 +51,26 @@
         </LinearLayout>
     </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical">
+        <TextView
+                android:text="About me"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView4" android:layout_weight="1"
+                android:textSize="30sp" android:textColor="#673AB7"/>
+        <TextView
+                android:text="I am a second-year student at Higher School of Banking in Wroclaw – in the
+field of mobile apps engineering. Currently I am focused on developing my
+skills in object-oriented programming (Java) and creating Android apps with use of Kotlin language, which I would like to implement
+in my future job career."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView5" android:layout_weight="1"
+                android:textSize="24sp" android:textColor="#8262BA"/>
+    </LinearLayout>
+
+</LinearLayout>

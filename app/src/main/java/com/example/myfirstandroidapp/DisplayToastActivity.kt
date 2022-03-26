@@ -1,7 +1,10 @@
 package com.example.myfirstandroidapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Switch
@@ -28,5 +31,22 @@ class DisplayToastActivity : AppCompatActivity() {
                 Toast.makeText(this, "Short toast", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // R.menu.mymenu is a reference to an xml file named mymenu.xml which should be inside your res/menu directory.
+        // If you don't have res/menu, just create a directory named "menu" inside res
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    // handle button activities
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == R.id.mybutton) {
+            val intent = Intent(this, DisplayAboutMeActivity::class.java).apply {}
+            startActivity(intent)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
