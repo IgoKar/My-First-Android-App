@@ -2,12 +2,17 @@ package com.example.myfirstandroidapp
 
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 const val EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE"
@@ -17,11 +22,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val alertDialogBtn = findViewById<Button>(R.id.alert_dialog_button)
+        alertDialogBtn.setOnClickListener{
+            val builder = AlertDialog.Builder(this@MainActivity)
+            builder.setTitle("App background color")
+            builder.setMessage("Do you want to set the app background to GRAY?")
+            builder.setPositiveButton("YES"){ _, _ ->
+                Toast.makeText(applicationContext,"Changing background color...", Toast.LENGTH_SHORT).show()
+                root_layout.setBackgroundColor(Color.GRAY)
+            }
+            builder.setNegativeButton("NO"){ _, _ ->
+                Toast.makeText(applicationContext, "Background change cancelled...", Toast.LENGTH_SHORT).show()
+            }
+            val dialog:AlertDialog = builder.create()
+            dialog.show()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        // R.menu.mymenu is a reference to an xml file named mymenu.xml which should be inside your res/menu directory.
-        // If you don't have res/menu, just create a directory named "menu" inside res
         menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
@@ -60,5 +79,4 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, DisplayRelativeLayoutActivity::class.java).apply {}
         startActivity(intent)
     }
-
 }

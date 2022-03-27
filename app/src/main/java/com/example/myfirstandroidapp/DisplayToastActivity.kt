@@ -15,14 +15,14 @@ class DisplayToastActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display_toast)
 
-        val imageViewToast = findViewById(R.id.image_view) as ImageView
+        val imageViewToast = findViewById<ImageView>(R.id.image_view)
         imageViewToast.setOnClickListener {
             // make a toast on button click event
             Toast.makeText(this, "Hi there! You've clicked imageView Toast!", Toast.LENGTH_SHORT).show()
         }
 
-        val switch = findViewById(R.id.switch_long_short) as Switch
-        val toastBtn = findViewById(R.id.toast_btn) as Button
+        val switch = findViewById<Switch>(R.id.switch_long_short)
+        val toastBtn = findViewById<Button>(R.id.toast_btn)
 
         toastBtn.setOnClickListener{
             if(switch.isChecked){
