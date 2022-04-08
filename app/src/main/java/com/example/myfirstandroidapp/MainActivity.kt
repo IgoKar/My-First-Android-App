@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.view.menu.MenuBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -28,8 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         val alertDialogBtn = findViewById<Button>(R.id.alert_dialog_button)
         alertDialogBtn.setOnClickListener{
-            val viewColor: ColorDrawable = root_layout.getBackground() as ColorDrawable
-            val colorId = viewColor.color
+            val viewColor: ColorDrawable? = root_layout.getBackground() as? ColorDrawable
+            val colorId = viewColor?.color
 
             val builder = AlertDialog.Builder(this@MainActivity)
             builder.setTitle("App background color")
@@ -53,20 +54,36 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
+        menuInflater.inflate(R.menu.option_menu, menu)
+        if (menu is MenuBuilder) {
+            menu.setOptionalIconsVisible(true)
+        }
         return super.onCreateOptionsMenu(menu)
     }
 
     // handle button activities
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        if (id == R.id.mybutton) {
-            val intent = Intent(this, DisplayAboutMeActivity::class.java).apply {}
-            startActivity(intent)
-        }
-        return super.onOptionsItemSelected(item)
-    }
+        return when (item.itemId) {
 
+            R.id.dark_light_mode -> {
+                Toast.makeText(applicationContext, "click on Activity", Toast.LENGTH_LONG).show()
+                return true
+            }
+
+            R.id.about_me -> {
+                val intent = Intent(this, DisplayAboutMeActivity::class.java).apply {}
+                startActivity(intent)
+                return true
+            }
+
+            R.id.exit -> {
+                Toast.makeText(applicationContext, "click on Activity exit", Toast.LENGTH_LONG).show()
+                return true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
     fun sendMessage(view: View) {
         val editText = findViewById<EditText>(R.id.editTextName)
