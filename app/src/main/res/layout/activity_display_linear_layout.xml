@@ -11,7 +11,7 @@
             android:layout_margin="16dp"
             android:text="Enter your name below:"
             android:textSize="16sp"
-            android:id="@+id/txtVw"/>
+            android:id="@+id/txtVw" android:textColor="@color/textColor"/>
 
     <EditText
             android:id="@+id/editTextName"
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:hint="Name"
-            android:inputType="text"/>
+            android:inputType="text" android:textColor="@color/textColor"/>
 
     <Button
             android:id="@+id/showInput"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="show"
-            android:textColor="@android:color/white" android:onClick="sendName" android:insetLeft="6dp"
-            android:insetRight="6dp"/>
+            android:textColor="@color/buttonTextColor" android:onClick="sendName" android:insetLeft="6dp"
+            android:insetRight="6dp" android:backgroundTint="@color/buttonColor"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

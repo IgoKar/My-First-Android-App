@@ -3,6 +3,7 @@ package com.example.myfirstandroidapp
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -12,6 +13,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -20,17 +22,27 @@ const val EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE"
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val alertDialogBtn = findViewById<Button>(R.id.alert_dialog_button)
         alertDialogBtn.setOnClickListener{
+            val viewColor: ColorDrawable = root_layout.getBackground() as ColorDrawable
+            val colorId = viewColor.color
+
             val builder = AlertDialog.Builder(this@MainActivity)
             builder.setTitle("App background color")
-            builder.setMessage("Do you want to set the app background to GRAY?")
+            builder.setMessage("Do you want to set the app background?")
             builder.setPositiveButton("YES"){ _, _ ->
-                Toast.makeText(applicationContext,"Changing background color...", Toast.LENGTH_SHORT).show()
-                root_layout.setBackgroundColor(Color.GRAY)
+                if(colorId != Color.GRAY) {
+                    Toast.makeText(applicationContext,"Background color changed to gray!", Toast.LENGTH_SHORT).show()
+                    root_layout.setBackgroundColor(Color.GRAY)
+                }
+                else {
+                    Toast.makeText(applicationContext,"Default background color restored!", Toast.LENGTH_SHORT).show()
+                    root_layout.setBackgroundColor(Color.TRANSPARENT)
+                }
             }
             builder.setNegativeButton("NO"){ _, _ ->
                 Toast.makeText(applicationContext, "Background change cancelled...", Toast.LENGTH_SHORT).show()

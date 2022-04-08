@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.myfirstandroidapp">
 
-    <uses-sdk android:minSdkVersion="3"/>
+    <uses-sdk android:minSdkVersion="11"/>
 
     <application
             android:allowBackup="true"
@@ -10,7 +10,7 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/Theme.MyFirstAndroidApp">
+            android:theme="@style/ThemeMyFirstAndroidApp">
         <activity
                 android:name=".DisplayToastActivity"
                 android:parentActivityName=".MainActivity">

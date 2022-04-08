@@ -62,7 +62,7 @@
                 android:text="About me"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/textView4" android:layout_weight="1"
-                android:textSize="30sp" android:textColor="#673AB7"/>
+                android:textSize="30sp" android:textColor="@color/textColor"/>
         <TextView
                 android:text="I am a second-year student at Higher School of Banking in Wroclaw – in the
 field of mobile apps engineering. Currently I am focused on developing my
@@ -70,7 +70,7 @@ skills in object-oriented programming (Java) and creating Android apps with use 
 in my future job career."
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/textView5" android:layout_weight="1"
-                android:textSize="24sp" android:textColor="#8262BA"/>
+                android:textSize="24sp" android:textColor="@color/textColorSecondary"/>
     </LinearLayout>
 
 </LinearLayout>
