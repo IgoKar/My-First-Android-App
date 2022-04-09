@@ -5,4 +5,5 @@
     <color name="textColor">#333333</color>
     <color name="textColorSecondary">#3A3A3A</color>
     <color name="backgroundColor">#ffffff</color>
+    <color name="iconColor">#303030</color>
 </resources>

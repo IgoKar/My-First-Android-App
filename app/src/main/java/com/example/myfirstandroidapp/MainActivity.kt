@@ -1,7 +1,7 @@
 package com.example.myfirstandroidapp
 
-
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -17,13 +17,11 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.view.menu.MenuBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 
-
 const val EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE"
-
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.getDefaultNightMode())
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -66,7 +64,16 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
 
             R.id.dark_light_mode -> {
-                Toast.makeText(applicationContext, "click on Activity", Toast.LENGTH_LONG).show()
+                when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+                    Configuration.UI_MODE_NIGHT_YES -> {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                        Toast.makeText(applicationContext, "Dark Mode Disabled", Toast.LENGTH_SHORT).show()
+                    }
+                    Configuration.UI_MODE_NIGHT_NO -> {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                        Toast.makeText(applicationContext, "Dark Mode Enabled", Toast.LENGTH_SHORT).show()
+                    }
+                }
                 return true
             }
 
