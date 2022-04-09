@@ -2,6 +2,7 @@ package com.example.myfirstandroidapp
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -9,6 +10,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.view.menu.MenuBuilder
 
 class DisplayLinearLayoutActivity : AppCompatActivity() {
@@ -31,7 +33,16 @@ class DisplayLinearLayoutActivity : AppCompatActivity() {
         return when (item.itemId) {
 
             R.id.dark_light_mode -> {
-                Toast.makeText(applicationContext, "click on Activity", Toast.LENGTH_LONG).show()
+                when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+                    Configuration.UI_MODE_NIGHT_YES -> {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                        Toast.makeText(applicationContext, "Dark Mode Disabled", Toast.LENGTH_SHORT).show()
+                    }
+                    Configuration.UI_MODE_NIGHT_NO -> {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                        Toast.makeText(applicationContext, "Dark Mode Enabled", Toast.LENGTH_SHORT).show()
+                    }
+                }
                 return true
             }
 
